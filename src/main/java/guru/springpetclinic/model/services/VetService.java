@@ -3,9 +3,11 @@ package guru.springpetclinic.model.services;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import guru.springpetclinic.model.Vet;
 
+@Service
 public class VetService implements CrudService<Vet, Long> {
 	
 	private MutableCrudService<Vet, Long> crudService;
