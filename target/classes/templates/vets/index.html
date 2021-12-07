@@ -5,7 +5,25 @@
 <title>Vets Index Page</title>
 </head>
 <body>
-	<h1 th:text="'List of Vets'">Vetenerians</h1>
+	<h1 th:text="'List of Vets'">Veterinarian</h1>
+	
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>First name</th>
+				<th>Second name</th>		
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="vet : ${vets}">
+				<td th:text="${vet.id}"></td>		
+				<td th:text="${vet.firstName}"></td>
+				<td th:text="${vet.lastName}"></td>
+			</tr>
+		</tbody>	
+	</table>
 
 </body>
 </html>

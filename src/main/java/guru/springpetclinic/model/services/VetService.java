@@ -10,10 +10,10 @@ import guru.springpetclinic.model.Vet;
 @Service
 public class VetService implements CrudService<Vet, Long> {
 	
-	private MutableCrudService<Vet, Long> crudService;
+	private MutableCrudService<Vet> crudService;
 	
 	@Autowired
-	public VetService(MutableCrudService<Vet, Long> crudService) {
+	public VetService(MutableCrudService<Vet> crudService) {
 		this.crudService = crudService;
 	}
 
@@ -29,8 +29,7 @@ public class VetService implements CrudService<Vet, Long> {
 
 	@Override
 	public void save(Vet e) {
-		crudService.save(e.getId(), e);
-		
+		crudService.save(e);
 	}
 
 	@Override

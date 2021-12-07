@@ -1,5 +1,6 @@
 package guru.springpetclinic.model.services;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -8,25 +9,30 @@ import java.util.Set;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
+import guru.springpetclinic.model.BaseEntity;
+
 @Service
 @Scope("prototype")
-public class MapService<T, ID> extends MutableCrudService<T,ID>{
+public class MapService<T extends BaseEntity> extends MutableCrudService<T>{
 	
-	protected Map<ID, T> map = new HashMap<>();
+	protected Map<Long, T> map = new HashMap<>();
 	
 	protected Set<T> findAll(){
 		return new HashSet<>(map.values());
 	}
 	
-	protected T findById(ID id) {
+	protected T findById(Long id) {
 		return map.get(id);
 	}
 	
-	protected void save(ID id, T element) {
+	protected void save(T element) {
+		long id = getNewId();
+		element.setId(id);
 		map.put(id, element);
+		printAll();
 	}
 	
-	protected void deleteById(ID id) {
+	protected void deleteById(Long id) {
 		map.remove(id);
 	}
 	
@@ -35,8 +41,12 @@ public class MapService<T, ID> extends MutableCrudService<T,ID>{
 	}
 	
 	protected void printAll() {
-		for(ID id : map.keySet()) {
+		for(Long id : map.keySet()) {
 			System.out.println("Key " + id + " - " + map.get(id));
 		}
+	}
+	
+	private Long getNewId() {
+		return map.size() == 0 ? 1L : Collections.max(map.keySet()) + 1;
 	}
 }
