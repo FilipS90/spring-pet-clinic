@@ -8,10 +8,10 @@ import guru.springpetclinic.model.Pet;
 
 public class PetService implements CrudService<Pet, Long> {
 	
-	private AbstractCrudService<Pet, Long> crudService;
+	private MutableCrudService<Pet, Long> crudService;
 	
 	@Autowired
-	public PetService(AbstractCrudService<Pet, Long> crudService) {
+	public PetService(MutableCrudService<Pet, Long> crudService) {
 		this.crudService = crudService;
 	}
 

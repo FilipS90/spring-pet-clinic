@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class MapService<T, ID> extends AbstractCrudService<T,ID>{
+public class MapService<T, ID> extends MutableCrudService<T,ID>{
 	
 	protected Map<ID, T> map = new HashMap<>();
 	

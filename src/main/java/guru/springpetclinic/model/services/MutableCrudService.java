@@ -2,7 +2,7 @@ package guru.springpetclinic.model.services;
 
 import java.util.Set;
 
-public abstract class AbstractCrudService<T, ID> {
+public abstract class MutableCrudService<T, ID> {
 	
 	protected abstract Set<T> findAll();
 	
