@@ -30,7 +30,6 @@ public class OwnerService implements CrudService<Owner, Long> {
 	@Override
 	public void save(Owner e) {
 		crudService.save(e.getId(), e);
-		
 	}
 
 	@Override
