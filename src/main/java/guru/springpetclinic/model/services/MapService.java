@@ -26,6 +26,9 @@ public class MapService<T extends BaseEntity> extends MutableCrudService<T>{
 	}
 	
 	protected void save(T element) {
+		if(element == null)
+			return;
+		
 		long id = getNewId();
 		element.setId(id);
 		map.put(id, element);

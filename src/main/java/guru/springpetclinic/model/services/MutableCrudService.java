@@ -2,9 +2,7 @@ package guru.springpetclinic.model.services;
 
 import java.util.Set;
 
-import guru.springpetclinic.model.BaseEntity;
-
-public abstract class MutableCrudService<T extends BaseEntity> {
+public abstract class MutableCrudService<T> {
 	
 	protected abstract Set<T> findAll();
 	
